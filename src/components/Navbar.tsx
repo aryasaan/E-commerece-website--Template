@@ -23,62 +23,62 @@ const Navbar = () => {
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <div className="relative">
+          <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div className="relative w-full max-w-xs sm:max-w-md">
               <input
                 type="text"
                 placeholder="Search"
-                className="w-32 sm:w-60 px-4 py-1 pr-8 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-1 pr-8 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <Search className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             </div>
-            
-            <div className="hidden sm:flex space-x-2">
-              <Button
-                variant="outline"
-                onClick={() => setShowAuth("login")}
-              >
-                Login
-              </Button>
-              <Button
-                onClick={() => setShowAuth("signup")}
-                className="bg-red-500 hover:bg-red-600"
-              >
-                Sign up
-              </Button>
-            </div>
-
-            <Sheet>
-              <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px]">
-                <div className="flex flex-col space-y-4 mt-6">
-                  <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                  <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                  <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                  <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</a>
-                  <div className="pt-4 border-t">
-                    <Button
-                      variant="outline"
-                      onClick={() => setShowAuth("login")}
-                      className="w-full mb-2"
-                    >
-                      Login
-                    </Button>
-                    <Button
-                      onClick={() => setShowAuth("signup")}
-                      className="w-full bg-red-500 hover:bg-red-600"
-                    >
-                      Sign up
-                    </Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
           </div>
+            
+          <div className="hidden sm:flex space-x-2">
+            <Button
+              variant="outline"
+              onClick={() => setShowAuth("login")}
+            >
+              Login
+            </Button>
+            <Button
+              onClick={() => setShowAuth("signup")}
+              className="bg-red-500 hover:bg-red-600"
+            >
+              Sign up
+            </Button>
+          </div>
+
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px]">
+              <div className="flex flex-col space-y-4 mt-6">
+                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</a>
+                <div className="pt-4 border-t">
+                  <Button
+                    variant="outline"
+                    onClick={() => setShowAuth("login")}
+                    className="w-full mb-2"
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    onClick={() => setShowAuth("signup")}
+                    className="w-full bg-red-500 hover:bg-red-600"
+                  >
+                    Sign up
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
       <AuthModals show={showAuth} onClose={() => setShowAuth(null)} />
