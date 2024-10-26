@@ -1,4 +1,11 @@
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const slides = [
   {
@@ -16,36 +23,25 @@ const slides = [
     title: "Creative Solutions",
     description: "Bringing your ideas to life",
   },
-  {
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
-    title: "Remote Work Solutions",
-    description: "Work from anywhere, anytime",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    title: "Modern Technology",
-    description: "Cutting-edge solutions for your needs",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    title: "Advanced Infrastructure",
-    description: "Built on robust technology",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
-    title: "Expert Development",
-    description: "Professional solutions for your business",
-  },
 ];
 
 const HeroCarousel = () => {
+  const autoplayPlugin = Autoplay({
+    delay: 5000,
+    stopOnInteraction: false,
+  });
+
   return (
-    <div className="w-full mt-16">
-      <Carousel className="w-full">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <Carousel 
+        className="w-full"
+        opts={{ loop: true }}
+        plugins={[autoplayPlugin]}
+      >
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
-              <div className="relative h-[300px] sm:h-[400px] w-full">
+              <div className="relative h-[300px] sm:h-[400px] w-full rounded-lg overflow-hidden">
                 <img
                   src={slide.image}
                   alt={slide.title}
@@ -59,6 +55,8 @@ const HeroCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPrevious className="hidden sm:flex" />
+        <CarouselNext className="hidden sm:flex" />
       </Carousel>
     </div>
   );
