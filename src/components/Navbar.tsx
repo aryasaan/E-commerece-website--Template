@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import AuthModals from "./AuthModals";
@@ -24,11 +24,11 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <div className="relative hidden sm:block">
+            <div className="relative">
               <input
                 type="text"
                 placeholder="Search"
-                className="w-full sm:w-60 px-4 py-1 pr-8 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-32 sm:w-60 px-4 py-1 pr-8 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <Search className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             </div>
