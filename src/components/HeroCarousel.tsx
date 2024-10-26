@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -6,7 +5,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const slides = [
@@ -28,24 +26,17 @@ const slides = [
 ];
 
 const HeroCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
-  ]);
-
-  useEffect(() => {
-    if (emblaApi) {
-      emblaApi.on("select", () => {
-        // Handle slide change if needed
-      });
-    }
-  }, [emblaApi]);
+  const autoplayPlugin = Autoplay({
+    delay: 5000,
+    stopOnInteraction: false,
+  });
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
       <Carousel 
         className="w-full"
         opts={{ loop: true }}
-        plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+        plugins={[autoplayPlugin]}
       >
         <CarouselContent>
           {slides.map((slide, index) => (
