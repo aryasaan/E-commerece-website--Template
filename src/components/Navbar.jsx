@@ -6,7 +6,7 @@ import AuthModals from "./AuthModals";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [showAuth, setShowAuth] = useState<"login" | "signup" | null>(null);
+  const [showAuth, setShowAuth] = useState(null);
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
