@@ -3,6 +3,7 @@ import { Search, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import AuthModals from "./AuthModals";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showAuth, setShowAuth] = useState<"login" | "signup" | null>(null);
@@ -12,13 +13,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
+            <Link to="/">
+              <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
+            </Link>
             <div className="hidden md:block ml-10">
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</a>
+                <Link to="/" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
+                <Link to="/about" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</Link>
+                <Link to="/services" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</Link>
+                <Link to="/contact" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</Link>
               </div>
             </div>
           </div>
@@ -57,10 +60,10 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col space-y-4 mt-6">
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                <a href="#" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</a>
+                <Link to="/" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
+                <Link to="/about" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">About</Link>
+                <Link to="/services" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Services</Link>
+                <Link to="/contact" className="text-gray-900 hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium">Contact us</Link>
                 <div className="pt-4 border-t">
                   <Button
                     variant="outline"
