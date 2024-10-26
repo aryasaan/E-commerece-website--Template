@@ -1,49 +1,58 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { useState } from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import PropTypes from "prop-types";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
 
 const AuthModals = ({ show, onClose }) => {
+  const [isLogin, setIsLogin] = useState(true);
+
   return (
-    <Dialog open={show !== null} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+    <Dialog open={show} onOpenChange={onClose}>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>
-            {show === "login" ? "Welcome back" : "Create an account"}
-          </DialogTitle>
+          <DialogTitle>{isLogin ? "Login" : "Sign Up"}</DialogTitle>
+          <DialogDescription>
+            {isLogin
+              ? "Please enter your credentials to login."
+              : "Create an account to get started."}
+          </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="Enter your email" />
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+              required
+            />
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="Enter your password" />
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+              required
+            />
           </div>
-          {show === "signup" && (
-            <div className="grid gap-2">
-              <Label htmlFor="confirm">Confirm Password</Label>
-              <Input
-                id="confirm"
-                type="password"
-                placeholder="Confirm your password"
-              />
-            </div>
-          )}
-          <Button className="w-full bg-red-500 hover:bg-red-600">
-            {show === "login" ? "Login" : "Sign Up"}
-          </Button>
-        </div>
+          <div className="flex justify-between">
+            <Button type="button" variant="outline" onClick={() => setIsLogin(!isLogin)}>
+              {isLogin ? "Create an account" : "Already have an account?"}
+            </Button>
+            <Button type="submit" className="bg-red-500 hover:bg-red-600">
+              {isLogin ? "Login" : "Sign Up"}
+            </Button>
+          </div>
+        </form>
       </DialogContent>
     </Dialog>
   );
-};
-
-AuthModals.propTypes = {
-  show: PropTypes.oneOf(["login", "signup", null]),
-  onClose: PropTypes.func.isRequired
 };
 
 export default AuthModals;
