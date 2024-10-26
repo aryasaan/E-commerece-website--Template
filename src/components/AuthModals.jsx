@@ -2,13 +2,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import PropTypes from "prop-types";
 
-interface AuthModalsProps {
-  show: "login" | "signup" | null;
-  onClose: () => void;
-}
-
-const AuthModals = ({ show, onClose }: AuthModalsProps) => {
+const AuthModals = ({ show, onClose }) => {
   return (
     <Dialog open={show !== null} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
@@ -43,6 +39,11 @@ const AuthModals = ({ show, onClose }: AuthModalsProps) => {
       </DialogContent>
     </Dialog>
   );
+};
+
+AuthModals.propTypes = {
+  show: PropTypes.oneOf(["login", "signup", null]),
+  onClose: PropTypes.func.isRequired
 };
 
 export default AuthModals;
