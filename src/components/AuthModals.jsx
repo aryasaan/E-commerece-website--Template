@@ -3,7 +3,12 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-const AuthModals = ({ show, onClose }) => {
+interface AuthModalsProps {
+  show: "login" | "signup" | null;
+  onClose: () => void;
+}
+
+const AuthModals = ({ show, onClose }: AuthModalsProps) => {
   return (
     <Dialog open={show !== null} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
