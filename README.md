@@ -1,6 +1,7 @@
 # Welcome to your GPT Engineer project
 
 ## Project info
+-This is template for the e-commerece website, and not specified about any particular site. You can use it as template for your design.
 
 **URL**: [https://run.gptengineer.app/projects/dda9d6fd-66f1-4669-b88a-07268a956ad8/improve](https://preview--stylish-navbar-popup.lovable.app/)
 
